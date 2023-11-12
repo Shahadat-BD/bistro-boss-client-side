@@ -12,7 +12,7 @@ const Banner = () => {
 
     return (
         <div>
-             <Carousel autoPlay>
+             <Carousel autoPlay className='text-center'>
                 <div>
                       <img src={img1} alt="" srcset="" />
                 </div>
