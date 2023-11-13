@@ -9,7 +9,8 @@ import 'swiper/css/navigation';
 
 // import required modules
 import { Autoplay, Navigation } from 'swiper/modules';
-import Star from '../../Component/SectionTitle/Star/Star';
+import Star from '../../Component/Star/Star';
+
 
 const Review = () => {
     const [review,setReview] = useState([])

@@ -3,12 +3,15 @@ import ReactDOM from 'react-dom/client'
 import './index.css'
 import { RouterProvider } from 'react-router-dom';
 import router from './Routes/Router.jsx';
+import { HelmetProvider } from 'react-helmet-async';
 
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <div className='max-w-screen-xl m-auto'>
-    <RouterProvider router={router}></RouterProvider>
-    </div>
+   <HelmetProvider>
+          <div className='max-w-screen-xl m-auto'>
+            <RouterProvider router={router}></RouterProvider>
+         </div>
+   </HelmetProvider>
   </React.StrictMode>
 )

@@ -2,9 +2,8 @@ import React, { useEffect } from 'react';
 import SectionTitle from '../../Component/SectionTitle/SectionTitle';
 import useMenu from '../../Hook/useMenu/useMenu';
 
-const MenuItem = () => {
+const PopularItem = () => {
     const menu = useMenu()
-    console.log(menu);
     const saladsItem = menu[0].filter(menu => menu.category === 'salad')
     console.log(saladsItem);
     return (
@@ -29,4 +28,4 @@ const MenuItem = () => {
     );
 };
 
-export default MenuItem;
+export default PopularItem;
