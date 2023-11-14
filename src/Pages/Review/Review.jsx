@@ -15,7 +15,7 @@ import Star from '../../Component/Star/Star';
 const Review = () => {
     const [review,setReview] = useState([])
     useEffect(()=>{
-        fetch('/reviews.json')
+        fetch('http://localhost:4000/review')
         .then(res => res.json())
         .then(data => setReview(data))
     },[])
