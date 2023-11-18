@@ -6,7 +6,9 @@ export default {
   ],
   theme: {
     letterSpacing : {
-        normal :  '3.12px'
+        normal :  '3.12px',
+        medium : '1.2px',
+        large : '4.50px',
     },
     extend: {},
   },

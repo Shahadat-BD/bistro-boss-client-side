@@ -41,7 +41,7 @@ const Register = () => {
                })
                setUser(result.user)
                toast('user created Successfully')
-               navigate(location?.state ? location.state : '/')
+               navigate(location.state?.from.pathname || '/')
             })
             .catch((error)=>{
                toast(error.message)
@@ -54,7 +54,7 @@ const Register = () => {
         googleSignIn()
         .then((result)=>{
             setUser(result.user)
-            navigate(location?.state ? location.state : '/')
+            navigate(location.state?.from.pathname || '/')
             toast('user logged in successfully')
         })
         .catch((error)=>{

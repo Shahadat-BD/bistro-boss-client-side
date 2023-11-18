@@ -8,6 +8,8 @@ import Menu from "../Pages/Menu/Menu";
 import Order from "../Pages/Order/Order";
 import ContactUs from "../Pages/ContactPages/ContactUs/ContactUs";
 import PrivateRoute from "./PrivateRoute";
+import Dashboard from "../Layout/Dashboard";
+import Cart from "../Pages/Dashboard/Cart/Cart";
 
 const router = createBrowserRouter([
     {
@@ -40,6 +42,16 @@ const router = createBrowserRouter([
         },
       ]      
     },
+    {
+        path:'/dashboard',
+        element:<Dashboard></Dashboard>,
+        children : [
+            {
+                path:'cart',
+                element: <Cart></Cart>
+            }
+        ]
+    }
   ]);
   
 export default router

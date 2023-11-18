@@ -11,7 +11,8 @@ const Login = () => {
   const navigate = useNavigate()
   const [showPassword, setShowPassword] = useState(false)
   const { setUser, signInUser, googleSignIn } = useContext(AuthContext);
-
+  const from = location.state?.from.pathname || '/'
+  console.log('my location data', from);
   const handleLoginForm = (e) => {
     e.preventDefault();
     const email = e.target.email.value;
@@ -20,7 +21,7 @@ const Login = () => {
       .then((result) => {
         setUser(result.user);
         toast("user logged in Successfully");
-        navigate(location?.state ? location.state : "/");
+        navigate(from);
       })
       .catch((error) => {
         toast(error.message)
@@ -32,7 +33,7 @@ const Login = () => {
     googleSignIn()
       .then((result) => {
         setUser(result.user)
-        navigate(location?.state ? location.state : '/')
+        navigate(from)
         toast('user logged in successfully')
       })
       .catch((error) => {
