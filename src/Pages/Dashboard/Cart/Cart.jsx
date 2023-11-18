@@ -37,14 +37,14 @@ const Cart = () => {
          
     }
     return (
-        <div className='pt-5 bg-[#F6F6F6] h-[100%] lg:px-20'>
-            <div className='-mt-20'>
+        <div className='pt-5 lg:px-20'>
+            <div className='-mt-16 -mb-7'>
                <SectionTitle title={'WANNA ADD MORE?'} heading={'---My Cart---'}></SectionTitle>
             </div>
             <div className='bg-[white] p-8 mb-10'>
                 <div className='flex justify-between mb-5'>
-                    <p className='uppercase font-semibold'>Total Order : {cart.length} </p>
-                    <p className='uppercase font-semibold'>Total Price : ${totalPrice} </p>
+                    <p className='uppercase logo text-xl font-semibold'>Total Order : {cart.length} </p>
+                    <p className='uppercase logo text-xl font-semibold'>Total Price : ${totalPrice} </p>
                     <button className='bg-[#D1A054] text-white uppercase px-3 py-1 rounded-md'>Pay</button>
                 </div>
                 <div className="overflow-x-auto">
