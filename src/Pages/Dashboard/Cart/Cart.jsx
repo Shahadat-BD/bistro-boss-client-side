@@ -50,7 +50,7 @@ const Cart = () => {
                 <div className="overflow-x-auto">
                     <table className="table">
                         {/* head */}
-                        <thead className='bg-[#D1A054] text-white'>
+                        <thead className='bg-[#D1A054] text-white rounded-2xl'>
                             <tr>
                                 <th>
                                     Number

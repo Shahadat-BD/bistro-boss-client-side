@@ -21,6 +21,15 @@ const Dashboard = () => {
                                 color: isActive ? "white" : "black",
                                 background: isActive ? "none" : "none",
                             })}
+                            to={'/dashboard/reservation'}> <BsHouseCheckFill className='text-xl mr-2' />USER HOME
+                        </NavLink>
+                    </li>
+                    <li className='logo text-lg font-medium'>
+                        <NavLink
+                            style={({ isActive }) => ({
+                                color: isActive ? "white" : "black",
+                                background: isActive ? "none" : "none",
+                            })}
                             to={'/dashboard/reservation'}> <BsCalendar2DateFill className='text-xl mr-2' />RESERVATION
                         </NavLink>
                     </li>
@@ -64,37 +73,37 @@ const Dashboard = () => {
                     <hr className='my-5' />
                     <li className='logo text-lg font-medium'>
                         <NavLink
+                            className={'hover:text-white'}
                             style={({ isActive }) => ({
-                                color: isActive ? "white" : "black",
-                                background: isActive ? "none" : "none",
+                                background : isActive ? 'none' : 'none'
                             })}
                             to={'/'}> <BsHouseCheckFill className='text-xl mr-2' /> HOME
                         </NavLink>
                     </li>
                     <li className='logo text-lg font-medium'>
                         <NavLink
+                            className={'hover:text-white'}
                             style={({ isActive }) => ({
-                                color: isActive ? "white" : "black",
-                                background: isActive ? "none" : "none",
+                                background : isActive ? 'none' : 'none'
                             })}
                             to={'/menu'}> <IoMenu className='text-xl mr-2' /> MENU
                         </NavLink>
                     </li>
                     <li className='logo text-lg font-medium'>
                         <NavLink
-                            style={({ isActive }) => ({
-                                color: isActive ? "white" : "black",
-                                background: isActive ? "none" : "none",
-                            })}
-                            to={'/menu'}><MdShoppingBag className='text-xl mr-2' /> SHOP
+                           className={'hover:text-white'}
+                           style={({ isActive }) => ({
+                               background : isActive ? 'none' : 'none'
+                           })}
+                            to={'/order/offered'}><MdShoppingBag className='text-xl mr-2' /> SHOP
                         </NavLink>
                     </li>
                     <li className='logo text-lg font-medium'>
                         <NavLink
-                            style={({ isActive }) => ({
-                                color: isActive ? "white" : "black",
-                                background: isActive ? "none" : "none",
-                            })}
+                        className={'hover:text-white'}
+                        style={({ isActive }) => ({
+                            background : isActive ? 'none' : 'none'
+                        })}
                             to={'/contact'}><MdContacts className='text-xl mr-2' /> CONTACT
                         </NavLink>
                     </li>

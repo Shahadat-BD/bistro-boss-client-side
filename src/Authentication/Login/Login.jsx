@@ -5,14 +5,17 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { FiEye, FiEyeOff } from 'react-icons/fi'
 import { AuthContext } from "../../AuthProvider/AuthProvider";
+import Swal from "sweetalert2";
+import useAxiosPublic from "../../Hook/useAxiosPublic/useAxiosPublic";
 
 const Login = () => {
   const location = useLocation();
   const navigate = useNavigate()
+  const axiosPublic = useAxiosPublic()
   const [showPassword, setShowPassword] = useState(false)
   const { setUser, signInUser, googleSignIn } = useContext(AuthContext);
   const from = location.state?.from.pathname || '/'
-  console.log('my location data', from);
+
   const handleLoginForm = (e) => {
     e.preventDefault();
     const email = e.target.email.value;
@@ -31,11 +34,26 @@ const Login = () => {
   // login with google 
   const handleGoogleSignIn = () => {
     googleSignIn()
-      .then((result) => {
-        setUser(result.user)
-        navigate(from)
-        toast('user logged in successfully')
+    .then((result)=>{
+      const userInfo = {
+        name  : result.user.displayName,
+        email : result.user.email
+      }
+      axiosPublic.post('/user',userInfo)
+      .then(res => {
+        Swal.fire({
+          position: "top-center",
+          icon: "success",
+          title: "user logged in successfully",
+          showConfirmButton: false,
+          timer: 1500
+        });
+         console.log('user logged in info',res.data);
+         navigate(location.state?.from.pathname || '/')
+            
       })
+      setUser(result.user)
+  })
       .catch((error) => {
         toast(error.message)
       })

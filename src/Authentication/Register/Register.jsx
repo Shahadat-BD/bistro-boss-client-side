@@ -1,12 +1,13 @@
 import React, { useContext, useState } from "react";
 import { FcGoogle } from "react-icons/fc";
 import { Link, useLocation, useNavigate} from "react-router-dom";
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
 import { updateProfile } from "firebase/auth";
 import {FiEye,FiEyeOff} from 'react-icons/fi'
 import { AuthContext } from "../../AuthProvider/AuthProvider";
+import useAxiosPublic from "../../Hook/useAxiosPublic/useAxiosPublic";
+import Swal from "sweetalert2";
 const Register = () => {
+    const axiosPublic = useAxiosPublic()
     const navigate = useNavigate()
     const location = useLocation();
     const [showPassword,setShowPassword] = useState(false)
@@ -40,8 +41,21 @@ const Register = () => {
                   window.location.reload(true)
                })
                setUser(result.user)
-               toast('user created Successfully')
-               navigate(location.state?.from.pathname || '/')
+              const userInfo = { name : name , email : email}
+              axiosPublic.post('/user',userInfo)
+              .then(res =>{
+                 if (res.data.insertedId) {
+                  Swal.fire({
+                    position: "top-center",
+                    icon: "success",
+                    title: "user created successfully",
+                    showConfirmButton: false,
+                    timer: 1500
+                  });
+                   navigate(location.state?.from.pathname || '/')
+                 }
+              })
+
             })
             .catch((error)=>{
                toast(error.message)
@@ -53,9 +67,24 @@ const Register = () => {
     const handleGoogleSignIn = () =>{
         googleSignIn()
         .then((result)=>{
+            const userInfo = {
+              name  : result.user.displayName,
+              email : result.user.email
+            }
+            axiosPublic.post('/user',userInfo)
+            .then(res => {
+              Swal.fire({
+                position: "top-center",
+                icon: "success",
+                title: "user logged in successfully",
+                showConfirmButton: false,
+                timer: 1500
+              });
+               console.log('user logged in info',res.data);
+               navigate(location.state?.from.pathname || '/')
+                  
+            })
             setUser(result.user)
-            navigate(location.state?.from.pathname || '/')
-            toast('user logged in successfully')
         })
         .catch((error)=>{
             toast(error.message)
@@ -135,7 +164,6 @@ const Register = () => {
           </div>
         </div>
       </div>
-      <ToastContainer/>
     </div>
   );
 };
