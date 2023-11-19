@@ -6,10 +6,11 @@ import { IoMenu } from "react-icons/io5";
 import useCart from '../Hook/useCart/useCart';
 import { FaAddressBook, FaUsers, FaUtensils } from 'react-icons/fa';
 import { TfiMenuAlt } from 'react-icons/tfi';
+import useAdmin from '../Hook/useAdmin/useAdmin';
 
 const Dashboard = () => {
     const [cart] = useCart()
-    const isAdmin = true;
+    const [isAdmin] = useAdmin()
     return (
         <div className='flex'>
             <div className='w-[270px] min-h-screen bg-[#D1A054]'>

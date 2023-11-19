@@ -12,7 +12,7 @@ const AllUsers = () => {
         queryKey :['users'],
         queryFn : async()=>{
             const res = await axiosSecure.get('/user')
-              return   res.data
+              return  res.data
         }
     })
       // create admin 
