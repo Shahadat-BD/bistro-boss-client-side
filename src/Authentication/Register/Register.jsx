@@ -12,7 +12,7 @@ const Register = () => {
     const location = useLocation();
     const [showPassword,setShowPassword] = useState(false)
     const {googleSignIn,setUser,createSignInUser} = useContext(AuthContext)
-
+    const from = location.state?.from.pathname || '/'
     const handleRegisterForm = e =>{
            e.preventDefault()
            const name = e.target.name.value
@@ -23,10 +23,22 @@ const Register = () => {
         const regex = /^(?=.*[A-Z])(?=.*[!@#$%^&*()_+])[A-Za-z\d!@#$%^&*()_+]{6,}$/;
 
         if (password.length < 6) {
-           toast('password must be 6 character')
+          Swal.fire({
+            position: "top-end",
+            icon: "error",
+            title: "password must be 6 character",
+            showConfirmButton: false,
+            timer: 1500
+          });
         }
          else if (!regex.test(password)) {
-             toast("at least one uppercase and one special character")
+          Swal.fire({
+            position: "top-end",
+            icon: "error",
+            title: 'at least one uppercase and one special character',
+            showConfirmButton: false,
+            timer: 1500
+          });
           } 
           else{
             createSignInUser(email,password)
@@ -41,9 +53,10 @@ const Register = () => {
                   window.location.reload(true)
                })
                setUser(result.user)
-              const userInfo = { name : name , email : email}
+               navigate(location.state?.from.pathname || '/')
+              const userInfo = { name : name, email : email}
               axiosPublic.post('/user',userInfo)
-              .then(res =>{
+              .then(res => {
                  if (res.data.insertedId) {
                   Swal.fire({
                     position: "top-center",
@@ -52,13 +65,18 @@ const Register = () => {
                     showConfirmButton: false,
                     timer: 1500
                   });
-                   navigate(location.state?.from.pathname || '/')
                  }
               })
 
             })
             .catch((error)=>{
-               toast(error.message)
+              Swal.fire({
+                position: "top-center",
+                icon: "error",
+                title: error.message,
+                showConfirmButton: false,
+                timer: 1500
+              });
             })
           }
 
@@ -79,15 +97,19 @@ const Register = () => {
                 title: "user logged in successfully",
                 showConfirmButton: false,
                 timer: 1500
-              });
-               console.log('user logged in info',res.data);
-               navigate(location.state?.from.pathname || '/')
-                  
+              });;                  
             })
             setUser(result.user)
+            navigate(location.state?.from.pathname || '/')
         })
         .catch((error)=>{
-            toast(error.message)
+          Swal.fire({
+            position: "top-center",
+            icon: "error",
+            title: error.message,
+            showConfirmButton: false,
+            timer: 1500
+          });
         })
     }
 

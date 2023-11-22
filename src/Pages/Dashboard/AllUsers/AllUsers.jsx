@@ -70,7 +70,7 @@ const AllUsers = () => {
     }
 
 return (
-        <div className='pt-5 lg:px-20'>
+        <div className='pt-5 lg:px-20  bg-[#F6F6F6] h-[100%]'>
             <div className='-mt-16 -mb-7'>
                <SectionTitle title={'MANAGE ALL USERS'} heading={'---How Many??---'}></SectionTitle>
             </div>

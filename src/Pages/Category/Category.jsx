@@ -32,11 +32,11 @@ const Category = () => {
         modules={[Pagination,Autoplay]}
         className="mySwiper mb-14"
       >
-        <SwiperSlide className='mb-24'><img src={slide1} alt="" srcset="" /><p className='text-white font-bold text-2xl -mt-14 text-center'>SALADS</p></SwiperSlide>
-        <SwiperSlide className='mb-24'><img src={slide2} alt="" srcset="" /><p className='text-white font-bold text-2xl -mt-14 text-center'>SOUPS</p></SwiperSlide>
-        <SwiperSlide className='mb-24'><img src={slide3} alt="" srcset="" /><p className='text-white font-bold text-2xl -mt-14 text-center'>PIZZAS</p></SwiperSlide>
-        <SwiperSlide className='mb-24'><img src={slide4} alt="" srcset="" /><p className='text-white font-bold text-2xl -mt-14 text-center'>DESSERTS</p></SwiperSlide>
-        <SwiperSlide className='mb-24'><img src={slide5} alt="" srcset="" /><p className='text-white font-bold text-2xl -mt-14 text-center'>SALADS</p></SwiperSlide>
+        <SwiperSlide className='mb-24'><img src={slide1}  /><p className='text-white font-bold text-2xl -mt-14 text-center'>SALADS</p></SwiperSlide>
+        <SwiperSlide className='mb-24'><img src={slide2}  /><p className='text-white font-bold text-2xl -mt-14 text-center'>SOUPS</p></SwiperSlide>
+        <SwiperSlide className='mb-24'><img src={slide3}  /><p className='text-white font-bold text-2xl -mt-14 text-center'>PIZZAS</p></SwiperSlide>
+        <SwiperSlide className='mb-24'><img src={slide4}  /><p className='text-white font-bold text-2xl -mt-14 text-center'>DESSERTS</p></SwiperSlide>
+        <SwiperSlide className='mb-24'><img src={slide5}  /><p className='text-white font-bold text-2xl -mt-14 text-center'>SALADS</p></SwiperSlide>
       </Swiper>
         </div>
     );

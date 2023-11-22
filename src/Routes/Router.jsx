@@ -11,11 +11,17 @@ import PrivateRoute from "./PrivateRoute";
 import Dashboard from "../Layout/Dashboard";
 import Cart from "../Pages/Dashboard/Cart/Cart";
 import AllUsers from "../Pages/Dashboard/AllUsers/AllUsers";
+import AdminRoutes from "./AdminRoutes";
+import AddItem from "../Pages/Dashboard/AddItem/AddItem";
+import ManageItems from "../Pages/Dashboard/ManageItems/ManageItems";
+import UpdateItem from "../Pages/Dashboard/UpdateItem/UpdateItem";
+import ErrorPage from "../Component/ErrorPage/ErrorPage";
 
 const router = createBrowserRouter([
     {
       path: "/",
       element: <Root></Root>,
+      errorElement : <ErrorPage/>,
       children : [
         {
             path : "/",
@@ -46,15 +52,29 @@ const router = createBrowserRouter([
     {
         path:'dashboard',
         element:<PrivateRoute><Dashboard></Dashboard></PrivateRoute>,
+        errorElement : <ErrorPage/>,
         children : [
             {
                 path:'cart',
                 element: <Cart></Cart>
             },
-            // admin routes
+            // Only admin can go to the routes
+            {
+               path : 'add_item',
+               element : <AdminRoutes><AddItem></AddItem></AdminRoutes>
+            },
+            {
+              path : 'manage_item',
+              element : <AdminRoutes><ManageItems></ManageItems></AdminRoutes>
+            },
+            {
+              path:'updateItem/:id',
+              element : <AdminRoutes> <UpdateItem></UpdateItem> </AdminRoutes>,
+              loader : ({params}) => fetch(`http://localhost:4000/foodMenu/${params.id}`)
+            },
             {
                 path:'all_users',
-                element: <AllUsers></AllUsers>
+                element: <AdminRoutes><AllUsers></AllUsers></AdminRoutes>
             }
         ]
     }

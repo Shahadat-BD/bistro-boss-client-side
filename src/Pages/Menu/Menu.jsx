@@ -7,10 +7,10 @@ import SectionTitle from '../../Component/SectionTitle/SectionTitle';
 import MenuCategory from './MenuCategory/MenuCategory';
 import MenuItemBg from './MenuItemBg/MenuItemBg';
 const Menu = () => {
-    const [menu] = useMenu()
+    const [,menu] = useMenu()
     const offeredItems = menu.filter(menu => menu.category === 'offered')
     const dessertItem = menu.filter(menu => menu.category === 'dessert')
-    const pizzaItem = menu.filter(menu => menu.category === 'pizza')
+const pizzaItem = menu.filter(menu => menu.category === 'pizza')
     const saladsItem = menu.filter(menu => menu.category === 'salad')
     const soupsItem = menu.filter(menu => menu.category === 'soup')
     return (

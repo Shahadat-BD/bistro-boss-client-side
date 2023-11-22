@@ -1,8 +1,6 @@
 import React, { useContext, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { FcGoogle } from "react-icons/fc";
-import { ToastContainer, toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
 import { FiEye, FiEyeOff } from 'react-icons/fi'
 import { AuthContext } from "../../AuthProvider/AuthProvider";
 import Swal from "sweetalert2";
@@ -23,11 +21,23 @@ const Login = () => {
     signInUser(email, password)
       .then((result) => {
         setUser(result.user);
-        toast("user logged in Successfully");
+        Swal.fire({
+          position: "top-center",
+          icon: "success",
+          title: 'user logged in successfully',
+          showConfirmButton: false,
+          timer: 1500
+        });
         navigate(from);
       })
       .catch((error) => {
-        toast(error.message)
+        Swal.fire({
+          position: "top-center",
+          icon: "error",
+          title: error.message,
+          showConfirmButton: false,
+          timer: 1500
+        });
       });
   };
 
@@ -55,7 +65,13 @@ const Login = () => {
       setUser(result.user)
   })
       .catch((error) => {
-        toast(error.message)
+        Swal.fire({
+          position: "top-center",
+          icon: "error",
+          title: error.message,
+          showConfirmButton: false,
+          timer: 1500
+        });
       })
   }
 
@@ -117,7 +133,6 @@ const Login = () => {
           </div>
         </div>
       </div>
-      <ToastContainer />
     </div>
   );
 };

@@ -4,7 +4,7 @@ const MenuItem = ({offered}) => {
     return (
         <div>
             <div key={offered._id} className='flex gap-4'>
-                    <img style={{borderRadius:"0px 200px 200px 200px"}} className='w-32' src={offered?.image} alt="" srcset="" />
+                    <img style={{borderRadius:"0px 200px 200px 200px"}} className='w-32' src={offered?.image}  />
                     <div className='flex items-center'>
                         <div>
                             <p className='text-lg logo'>{offered.name}------------</p>

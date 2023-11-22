@@ -9,7 +9,7 @@ import FoodCard from './FoodCard/FoodCard';
 import { useParams } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 const Order = () => {
-    const [menu] = useMenu()
+    const [,menu] = useMenu()
     const {category} = useParams()
     const categories = ['offered','dessert','pizza','salad','soup']
     const initialIndex = categories.indexOf(category)

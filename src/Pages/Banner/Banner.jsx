@@ -14,22 +14,22 @@ const Banner = () => {
         <div>
              <Carousel autoPlay className='text-center'>
                 <div>
-                      <img src={img1} alt="" srcset="" />
+                      <img src={img1}  />
                 </div>
                 <div>
-                      <img src={img2} alt="" srcset="" />
+                      <img src={img2}  />
                 </div>
                 <div>
-                      <img src={img3} alt="" srcset="" />
+                      <img src={img3}  />
                 </div>
                 <div>
-                      <img src={img4} alt="" srcset="" />
+                      <img src={img4}  />
                 </div>
                 <div>
-                      <img src={img5} alt="" srcset="" />
+                      <img src={img5}  />
                 </div>
                 <div>
-                      <img src={img6} alt="" srcset="" />
+                      <img src={img6}  />
                 </div>
             </Carousel>
         </div>
