@@ -16,6 +16,7 @@ import AddItem from "../Pages/Dashboard/AddItem/AddItem";
 import ManageItems from "../Pages/Dashboard/ManageItems/ManageItems";
 import UpdateItem from "../Pages/Dashboard/UpdateItem/UpdateItem";
 import ErrorPage from "../Component/ErrorPage/ErrorPage";
+import Payment from "../Pages/Dashboard/Payment/Payment";
 
 const router = createBrowserRouter([
     {
@@ -57,6 +58,10 @@ const router = createBrowserRouter([
             {
                 path:'cart',
                 element: <Cart></Cart>
+            },
+            {
+                path : 'payment',
+                element : <Payment></Payment>
             },
             // Only admin can go to the routes
             {

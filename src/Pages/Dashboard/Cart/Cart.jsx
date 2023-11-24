@@ -4,6 +4,7 @@ import useCart from '../../../Hook/useCart/useCart';
 import { MdDelete } from 'react-icons/md';
 import useAxiosSecure from '../../../Hook/useAxiosSecure/useAxiosSecure';
 import Swal from 'sweetalert2';
+import { Link } from 'react-router-dom';
 
 const Cart = () => {
     const [cart,refetch] = useCart()
@@ -45,7 +46,15 @@ const Cart = () => {
                 <div className='flex justify-between mb-5'>
                     <p className='uppercase logo text-xl font-semibold'>Total Order : {cart.length} </p>
                     <p className='uppercase logo text-xl font-semibold'>Total Price : ${totalPrice} </p>
-                    <button className='bg-[#D1A054] text-white uppercase px-3 py-1 rounded-md'>Pay</button>
+                    {
+                        cart.length ? 
+                        <Link to={'/dashboard/payment'}>
+                        <button className='bg-[#D1A054] text-white uppercase px-3 py-1 rounded-md'>Pay</button>
+                       </Link>
+                        :
+                           <button disabled className='bg-gray-500 text-white uppercase px-3 py-1 rounded-md'>Pay</button>
+        
+                    }
                 </div>
                 <div className="overflow-x-auto">
                     <table className="table">
